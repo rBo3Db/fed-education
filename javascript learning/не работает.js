@@ -20,11 +20,11 @@ function World(plan) {
     this.parseToGrid();
     
 }
-function Animal() {
-
+function Animal(originChar) {
+    this.originChar = originChar;
 }
-function Wall() {
-    
+function Wall(originChar) {
+    this.originChar = originChar;
 }
 
 World.prototype.show = function() {
@@ -40,9 +40,9 @@ World.prototype.parseToGrid = function() {
         element.split('').forEach(elementOfRow => {
             if (elementOfRow === '#') {
 
-                output.push(new Wall());
+                output.push(new Wall(elementOfRow));
             } else if (elementOfRow === "o") {
-                output.push(new Animal());
+                output.push(new Animal(elementOfRow));
             } else {
                 output.push(null);
             }
@@ -101,13 +101,11 @@ function Grid(width, height, space) {
     "nw": new Vector(-1, -1)
   };
 
-var grid = new Grid(myWorld.heigth, myWorld.width, myWorld.grid);
+var grid = new Grid(myWorld.height, myWorld.width, myWorld.grid);
 
 function charFromElement(element) {
     if (element == null) {
       return " "
-    } else if (element == Wall) {
-        return "#";
     }
       return element.originChar;
   }

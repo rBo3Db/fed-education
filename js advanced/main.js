@@ -1,5 +1,3 @@
-
-// vector
 function Vector(x, y) {
   this.x = x;
   this.y = y;
@@ -9,7 +7,6 @@ Vector.prototype.plus = function(other) {
   return new Vector(this.x + other.x, this.y + other.y);
 };
 
-// grid
 function Grid(width, height) {
   this.arrayGrid = new Array(width * height);
   this.width = width;
@@ -126,28 +123,31 @@ function Plant() {
 // Plant.prototype.act = function(view) {
 //   if(Math.random() < 0.99)
 // }
-function Sliden () {
-    this.direction = randomElement(Object.keys(directions));
-};
-
-Sliden.prototype.act = function(view) {
+function Animal() {
+  this.direction = randomElement(Object.keys(directions));
+}
+Animal.prototype.act = function(view) {
   if (view.look(this.direction) != " ")
-    this.direction = view.find(" ") || "s";
+  this.direction = view.find(" ") || "s";
   return {type: "move", direction: this.direction};
-};
-
-function Human() {
-  Sliden.apply(this, arguments);
 }
 
-Human.prototype = Object.create(Sliden.prototype);
+function Sliden() {
+  Animal.call(this);
+}
+Sliden.prototype = Object.create(Animal.prototype);
+
+function Human() {
+  Animal.call(this);
+}
+
+Human.prototype = Object.create(Animal.prototype);
 
 Human.prototype.act = function(view) {
   if(view.look(this.direction) != 'S' && view.look(this.direction) != " ") {
     this.direction = view.find('S') || (this.direction = view.find(" "));
   }
   return {type: 'move', direction: this.direction};
-
 };
 
 // Urkop.prototype = Object.create()
@@ -207,6 +207,5 @@ function show() {
   console.clear();
   console.log(world.toString());
   }, 500);
-  
 }
 show();

@@ -39,7 +39,6 @@ Grid.prototype.forEach = function(f, context) {
   }
 }
 
-
 // направления
 var directions = {
   "n":  new Vector( 0, -1),
@@ -51,7 +50,6 @@ var directions = {
   "w":  new Vector(-1,  0),
   "nw": new Vector(-1, -1)
 };
-
 
 function elementFromChar(legend, symb) {
   if (symb == " ")
@@ -109,18 +107,8 @@ World.prototype.letAct = function(elem, vector) {
   var action = elem.act(new View(this, vector));
   if(action && action.type == "move") {
     var dest = this.checkDestination(action, vector);
-    if (dest && this.grid.get(dest) == null) {
-      //if(Math.random() < 0.99)
-        this.grid.set (vector, null);
-        this.grid.set(dest, elem);
-    }
-  } else if(action && action.type == 'eat') {
-    var dest = this.checkDestination(action, vector);
-    if(dest && this.grid.get(dest) == null || this.grid.get(dest).originChar == "S"){
-      
-        this.grid.set(vector,null);
-        this.grid.set(dest, elem);
-    }
+    this.grid.set (vector, null);
+    this.grid.set(dest, elem);
   }
 };
 
@@ -133,7 +121,11 @@ World.prototype.checkDestination = function(action, vector) {
 }
 
 function Wall() {}
-
+function Plant() {
+}
+// Plant.prototype.act = function(view) {
+//   if(Math.random() < 0.99)
+// }
 function Sliden () {
     this.direction = randomElement(Object.keys(directions));
 };
@@ -144,17 +136,18 @@ Sliden.prototype.act = function(view) {
   return {type: "move", direction: this.direction};
 };
 
-function Human () {
+function Human() {
   Sliden.apply(this, arguments);
 }
 
 Human.prototype = Object.create(Sliden.prototype);
 
 Human.prototype.act = function(view) {
-  if(view.look(this.direction) != 'S') {
-    this.direction = view.find('S') ||  randomElement(Object.keys(directions));
+  if(view.look(this.direction) != 'S' && view.look(this.direction) != " ") {
+    this.direction = view.find('S') || (this.direction = view.find(" "));
   }
-  return {type: 'eat', direction: this.direction};
+  return {type: 'move', direction: this.direction};
+
 };
 
 // Urkop.prototype = Object.create()
@@ -208,12 +201,6 @@ var world = new World(plan,
   }
 );
 
-// for (var i = 0; i < 100; i++) {
-//   world.turn();
-//   console.log(world.toString());
-//   console.log("turn " + i);
-// }
-
 function show() {
   setInterval(function() {
   world.turn();
@@ -223,10 +210,3 @@ function show() {
   
 }
 show();
-
-// for(var i = 0; i < 500; i++) {
-//   // show();
-// }
-
-
-

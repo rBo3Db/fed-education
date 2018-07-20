@@ -26,10 +26,20 @@ Grid.prototype.set = function(vector, value) {
   this.arrayGrid[vector.x + this.width * vector.y] = value;
 };
 
+// Grid.prototype.forEach = function(f, context){
+//   for (var i=0; i < this.height; i++) {
+//     for (var j=0;j < this.width; j++) {
+//       var vector = new Vector(i,j)
+//       var value = this.get(vector);
+//       if (value != null)
+//       f.call(context, value, vector);
+//     }
+//   }
+// };
 Grid.prototype.forEach = function(f, context) {
   for (var y = 0; y < this.height; y++) {
     for (var x = 0; x < this.width; x++) {
-      var value = this.arrayGrid[x+y * this.width];
+      var value = this.arrayGrid[x + y * this.width];
       if (value != null)
         f.call(context, value, new Vector(x,y));
     }

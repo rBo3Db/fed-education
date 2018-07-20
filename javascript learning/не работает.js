@@ -93,15 +93,16 @@ Grid.prototype.isInside = function(vector) {
     this.space[vector.x + this.width * vector.y] = value;
   };
 
-  // Grid.prototype.forhui = function(f, context){
-  //   for (var i=0; i < this.height; i++) {
-  //     for (var j=0;j < this.width; j++) {
-  //       var vector = new Vector(i,j)
-  //       var critter = this.get(vector);
-  //       f.call(context, critter, vector);
-  //     }
-  //   }
-  // };
+  Grid.prototype.forhui = function(f, context){
+    for (var i=0; i < this.height; i++) {
+      for (var j=0;j < this.width; j++) {
+        var vector = new Vector(i,j)
+        var critter = this.get(vector);
+        if (value != null)
+        f.call(context, critter, vector);
+      }
+    }
+  };
 
 //   Grid.prototype.forEach = function(f, context) {
 //     for (var y = 0; y < this.height; y++) {

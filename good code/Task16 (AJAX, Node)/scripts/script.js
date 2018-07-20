@@ -9,14 +9,12 @@ window.onload = function() {
     var rootUrl;
     rootUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=e33262cd6a432b1c3dc5181a736dbc41&q=";
     var url = rootUrl + encodeURIComponent(city);
-
     try {
-      const response = await fetch(url);
-      const myjson = await response.json();
+      const request = await fetch(url);
+      const myjson = await request.json();
       update(myjson);
     } catch (error) {
       console.log(error);
-      return null;
     }  
   }
 

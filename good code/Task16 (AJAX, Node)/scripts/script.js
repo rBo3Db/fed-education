@@ -1,59 +1,23 @@
-window.onload = function() { 
-  var london = document.getElementById("london");
-  london.onclick = function () {
-    let city = "London";
-    updatecity(city);
-  }
-  var ryazan = document.getElementById("ryazan");
-  ryazan.onclick = function () {
-    let city = "Ryazan";
-    updatecity(city);
-  }
-  var ny = document.getElementById("ny");
-  ny.onclick = function () {
-    let city = "New York";
-    updatecity(city);
-  }
-  var moscow = document.getElementById("moscow");
-  moscow.onclick = function () {
-    let city = "Moscow";
-    updatecity(city);
-  }
-  var vladivostok= document.getElementById("vladivostok");
-  vladivostok.onclick = function () {
-    let city = "vladivostok";
-    updatecity(city);
-  }
-  var dubai = document.getElementById("dubai");
-  dubai.onclick = function () {
-    let city = "dubai";
-    updatecity(city);
-  }
-  var tokyo = document.getElementById("tokyo");
-  tokyo.onclick = function () {
-    let city = "tokyo";
-    updatecity(city);
-  }
+window.onload = function() {
 
-  function updatecity(city) {
+  document.getElementById('navbar').addEventListener('click', function(e) {
+    e.stopPropagation(); // останавливаем всплытие
+    getWeather(e.target.innerHTML); // получаем и записываем содержимое элемента вызвавшего событие
+  }, false);
+
+  async function getWeather(city) {
     var rootUrl;
-    if (city === "dubai" || city === "tokyo" || city === "vladivostok") {
-      rootUrl = 'http://localhost:3000/';
-    } else {
-      rootUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=e33262cd6a432b1c3dc5181a736dbc41&q=";
-    }
+    rootUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=e33262cd6a432b1c3dc5181a736dbc41&q=";
     var url = rootUrl + encodeURIComponent(city);
-    fetch(url)
-      .then(async function(response) {
-        var myjson = await response.json();
-        return myjson;
-      })
-      .then(update)
-      .catch(error);  
-  }
 
-  function error(error) {
-  console.log(error); 
+    try {
+      const response = await fetch(url);
+      const myjson = await response.json();
+      update(myjson);
+    } catch (error) {
+      console.log(error);
+      return null;
+    }  
   }
 
   function update(myjson) {

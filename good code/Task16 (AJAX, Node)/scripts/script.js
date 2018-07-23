@@ -38,7 +38,7 @@ window.onload = function() {
     var weather_id = [];
     var day_pressure = [];
     var weekaday = [];
-    
+
     var date = new Date();
     
     var day = (date.toLocaleString("en", {day: 'numeric'}))%10;
@@ -46,9 +46,9 @@ window.onload = function() {
     
     pp.innerHTML = myjson.list[0].weather[0].main;
     h1.innerHTML = myjson.city.name;
-    p.innerHTML = date.toLocaleString('en', {weekday: 'long'})+ ', ' + date.toLocaleString("en", {month: 'long', day: 'numeric'}) + endOfday(day);
+    p.innerHTML = date.toLocaleString('en', {weekday: 'long'})+ ', ' + date.toLocaleString("en", {month: 'long', day: 'numeric'}) + endOfDay(day);
 
-    function endOfday(day) {
+    function endOfDay(day) {
       if(day == 2){
         return "nd";
       } else if(day == 1){
@@ -63,6 +63,7 @@ window.onload = function() {
     pressure.innerHTML = "Pressure: " +  Math.round(myjson.list[0].main.pressure) + " hPA";
     wind.innerHTML = "Wind: " +  Math.round(myjson.list[0].wind.speed) + " m/s";
     var today_weather = myjson.list[0].weather[0].id;
+
     if (today_weather == 800){
       if((hour == 21)||(hour <= 3)){
         today_img.innerHTML = "<img class='today-widget__icon' src='img/38.png'/>";
@@ -138,3 +139,6 @@ window.onload = function() {
     }
   }
 }
+    // today_img.innerHTML = "<img class='today-widget__icon' src='http://openweathermap.org/img/w/"+ myjson.list[0].weather[0].icon + ".png'/>"
+    // today_img.innerHTML = "<img class='today-widget__icon' src='http://openweathermap.org/img/w/"+ myjson.list[0].weather[0].icon + ".png'/>"
+    // today_img.innerHTML = "<img class='today-widget__icon' src='http://openweathermap.org/img/w/"+ myjson.list[0].weather[0].icon + ".png'/>"

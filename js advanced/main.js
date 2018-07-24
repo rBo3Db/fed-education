@@ -1,3 +1,4 @@
+
 var plan = [
     '############################',
     '#               S          #',
@@ -19,6 +20,7 @@ var world = new World(plan,
         'H': Human
     }
 );
+
 
 function show() {
     var interval = 500;

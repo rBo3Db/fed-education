@@ -1,7 +1,19 @@
 {
+
+
     "globals": {
         "plan": false,
-        "directions": false
+        "directions": false,
+        "randomElement": false,
+        "Vector": false,
+        "Animal": false,
+        "World": false,
+        "Wall": false,
+        "Sliden": false,
+        "Human": false,
+        "charFromElement": false,
+        "Grid": false,
+        "View": false
     },
 
     "env": {
@@ -19,7 +31,9 @@
     },
     
     "rules": {
-    
+
+    "no-console": 0,
+
     "indent": [
     
     "error",
@@ -37,6 +51,7 @@
     ],
     
     "quotes": [
+        
         "error",
 
         "single"

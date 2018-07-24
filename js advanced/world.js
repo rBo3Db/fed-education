@@ -11,13 +11,13 @@ function World (map, legend) {
 }
 
 World.prototype.toString = function() {
-    var output = "";
+    var output = '';
     for (var y = 0; y < this.grid.height; y++) {
         for (var x = 0; x < this.grid.width; x++) {
             var element = this.grid.get(new Vector(x, y));
             output += charFromElement(element);
         }
-        output += "\n";
+        output += '\n';
     }
     return output;
 };
@@ -35,7 +35,7 @@ World.prototype.turn = function() {
 
 World.prototype.letAct = function(elem, vector) {
     var action = elem.act(new View(this, vector));
-    if(action && action.type == "move") {
+    if(action && action.type == 'move') {
         var dest = this.checkDestination(action, vector);
         this.grid.set (vector, null);
         this.grid.set(dest, elem);
@@ -52,3 +52,11 @@ World.prototype.checkDestination = function(action, vector) {
     }
 };
 
+function elementFromChar(legend, ch) {
+    if (ch == ' ') {
+        return null;
+    }
+    var element = new legend[ch]();
+    element.originChar = ch;
+    return element;
+}

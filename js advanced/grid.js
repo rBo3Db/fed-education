@@ -20,7 +20,7 @@ Grid.prototype.set = function(vector, value) {
 Grid.prototype.forEach = function(f, context){
     for (var i=0; i < this.height; i++) {
         for (var j=0;j < this.width; j++) {
-            var vector = new Vector(j,i)
+            var vector = new Vector(j,i);
             var value = this.get(vector);
             if (value != null)
                 f.call(context, value, vector);

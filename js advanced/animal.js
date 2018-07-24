@@ -3,6 +3,6 @@ function Animal() {
 }
 Animal.prototype.act = function(view) {
     if (view.look(this.direction) != ' ')
-        this.direction = view.find(' ') || 's';
+        this.direction = view.find(' ') || 'south';
     return {type: 'move', direction: this.direction};
 };

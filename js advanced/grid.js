@@ -53,7 +53,6 @@ Grid.prototype.for1DArray = function(callback, i) {
 };
 
 Grid.prototype.for2DArray = function(callback) {
-
     for (var i = 0; i < this.height; i++) {
         this.for1DArray(callback, i);
     }

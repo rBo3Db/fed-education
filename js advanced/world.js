@@ -4,10 +4,9 @@ function World (map, legend) {
     this.legend = legend;
 
     map.forEach(function(line, y) {
-        for (var x = 0; x < line.length; x++) {
+        for (var x = 0; x < line.length; x++)
             grid.set(new Vector(x, y),
                 elementFromChar(legend, line[x]));
-        }
     });
 }
 
@@ -22,6 +21,16 @@ World.prototype.toString = function() {
     }
     return output;
 };
+// World.prototype.toString = function() {
+//     var output = '';
+//     for (var y = 0; y < this.grid.height; y++) {
+//         this.grid.for1Darray(function() {
+//             output += charFromElement(this.value);
+//         },y);
+//         output += '\n';
+//     }
+//     return output;
+// };
 
 World.prototype.turn = function() {
     var acted = [];

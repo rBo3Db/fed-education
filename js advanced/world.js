@@ -4,9 +4,10 @@ function World (map, legend) {
     this.legend = legend;
 
     map.forEach(function(line, y) {
-        for (var x = 0; x < line.length; x++)
+        for (var x = 0; x < line.length; x++) {
             grid.set(new Vector(x, y),
                 elementFromChar(legend, line[x]));
+        }
     });
 }
 

@@ -9,7 +9,8 @@ Human.prototype.act = function(view) {
         view.look(this.direction) != 'S' && 
         view.look(this.direction) != ' '
     ){
-        this.direction = view.find('S') || (this.direction = view.find(' '));
+        this.direction = view.find('S') || 
+        (this.direction = view.find(' '));
     }
     return {type: 'move', direction: this.direction};
 };

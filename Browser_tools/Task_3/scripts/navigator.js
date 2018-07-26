@@ -1,5 +1,3 @@
-const content = document.getElementById('content');
-
 showResult(checkBrowserPlugin());
 
 function showResult(browser) {

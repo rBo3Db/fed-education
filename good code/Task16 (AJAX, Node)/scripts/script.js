@@ -38,9 +38,7 @@ window.onload = function() {
     var weather_id = [];
     var day_pressure = [];
     var weekaday = [];
-
     var date = new Date();
-    
     var day = (date.toLocaleString("en", {day: 'numeric'}))%10;
     var hour = date.toLocaleString("ru", {hour: 'numeric'});
     

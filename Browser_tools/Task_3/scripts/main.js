@@ -8,6 +8,5 @@ document.getElementById('history').addEventListener('click', function(e) {
     }
     if (e.target.innerText == 'next') {
         history.go(+1);
-    }
-    ; // получаем и записываем содержимое элемента вызвавшего событие
-  }, false);
+    };
+}, false);

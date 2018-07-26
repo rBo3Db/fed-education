@@ -1,33 +1,47 @@
-<<!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>navigation</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="navigation.css" />
-        <script src="navigation.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>navigator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" /> -->
+</head>
 
-    <body>
-        <nav>
-            <ul>
-                <li>
-                    navigation
-                </li>
-                <li>
-                    <a href="/screen.html">screen</a>
-                </li>
-                <li>
-                    <a href="window.html">window</a>
-                </li>
-                <li>
-                    <a href="/location.html">location</a>
-                </li>
-            </ul>
-        </nav>
+<body>
+    <nav>
+        <ul>
+            <li>
+                navigator
+            </li>
+            <li>
+                <a href="/screen.html">screen</a>
+            </li>
+            <li>
+                <a href="window.html">window</a>
+            </li>
+            <li>
+                <a href="/location.html">location</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <content id="content"></content>
+        <ul id="history">
+            <li id="previos">
+                previos
+            </li>
+            <li>
+                history:<span id="historyPosition"></span>
+            </li>
+            <li id="next">
+                next
+            </li>
+        </ul>
+    </main>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/navigator.js"></script>
+</body>
 
-    </body>
-
-    </html>
+</html>

@@ -17,7 +17,7 @@ let availWidthInformation = new ScreenElement ('availWidth', "Get the available 
 let colorDepthInformation = new ScreenElement ('colorDepth', "Get the bit depth of the color palette(how mucth bits per pixel)");
 let heightInformation = new ScreenElement ('height', "Get the total height of your screen");
 let pixelDepthInformation = new ScreenElement('pixelDepth', "Get the color resolution of your screen:");
-let widthInformation = new ScreenElement('width', "Get the color resolution of your screen");
+let widthInformation = new ScreenElement('width', "Get the total width of your screen");
 
 availHeightInformation.show();
 availWidthInformation.show();

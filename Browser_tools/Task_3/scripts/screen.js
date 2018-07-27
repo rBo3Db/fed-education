@@ -8,7 +8,7 @@ class ScreenElement {
   }
 
   show() {
-    content.innerHTML = this.name + this.description + this.call;
+    content.insertAdjacentHTML('afterend',this.name + this.description + this.call + '<br>');
   }
 
 }
@@ -18,6 +18,10 @@ let colorDepthInformation = new ScreenElement ('colorDepth', "Get the bit depth 
 let heightInformation = new ScreenElement ('height', "Get the total height of your screen");
 let pixelDepthInformation = new ScreenElement('pixelDepth', "Get the color resolution of your screen:");
 let widthInformation = new ScreenElement('width', "Get the color resolution of your screen");
-function showAll() {
 
-}
+availHeightInformation.show();
+availWidthInformation.show();
+colorDepthInformation.show();
+heightInformation.show();
+pixelDepthInformation.show();
+widthInformation.show();

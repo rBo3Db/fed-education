@@ -1,33 +1,62 @@
 <!DOCTYPE html>
-    <html>
+<html>
 
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>window</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-        <script src="/scripts/window.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>window</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" /> -->
 
-    <body>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/navigator.html">navigation</a>
-                </li>
-                <li>
-                    <a href="screen.html">screen</a>
-                </li>
-                <li>
-                    window
-                </li>
-                <li>
-                    <a href="location.html">location</a>
-                </li>
-            </ul>
-        </nav>
+</head>
 
-    </body>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="navigator.html">navigation</a>
+            </li>
+            <li>
+                <a href="screen.html">screen</a>
+            </li>
+            <li>
+                window
+            </li>
+            <li>
+                <a href="location.html">location</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <content id="content">
+            <form id="create-new-window" name="my-form">
+                <input type="number" id="width" name="form-name">
+                <input type="number" id="height" name="form-name">
+                <button id="submit-size-for-new-window"type="submit">submit</button>
+            </form>
+        </content>
+        <ul id="history">
+            <li id="previos">
+                previos<!--
+         --></li>
+            <li>
+                history:
+                <span id="historyPosition"></span>
+            </li>
+            <li id="next">
+                next<!--
+         --></li>
+        </ul>
+    </main>
+</body>
+<script src="scripts/main.js"></script>
+<script src="scripts/consts.js"></script>
+<script src="scripts/window.js"></script>
 
-    </html>
+</html>
+<!-- a. availHeight
+    b. availWidth
+    c. colorDepth
+    d. height
+    e. pixelDepth
+    f. Width -->

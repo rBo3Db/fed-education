@@ -1,0 +1,27 @@
+#dropBigImage {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+    height: 600px;
+}
+
+#container  {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    /* transform: translate(28,0) */
+}
+
+#container img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+
+.active {
+    border: 1px solid red;
+}
+
+
